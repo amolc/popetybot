@@ -7,6 +7,7 @@ let bot = new Bot({
   app_secret: '6fc2a42e53cb0b0dbf27051626effd8b'
 })
 
+
 bot.on('error', (err) => {
   console.log(err.message)
 })
@@ -25,5 +26,20 @@ bot.on('message', (payload, reply) => {
   })
 })
 
-http.createServer(bot.middleware()).listen(3000)
-console.log('Echo bot server running at port 3000.')
+let app = express()
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
+
+app.get('/', (req, res) => {
+  return bot._verify(req, res)
+})
+
+app.post('/', (req, res) => {
+  bot._handleMessage(req.body)
+  res.end(JSON.stringify({status: 'ok'}))
+})
+
+http.createServer(app).listen(3000)
