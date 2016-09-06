@@ -2,7 +2,7 @@ const http = require('http')
 const Bot = require('messenger-bot')
 
 let bot = new Bot({
-  token: 'EAAOZANotcVcgBAFg5zY54PmEVX66iRZCG70mTy557ZBfYxZBOuVyWaUsjjzrIIsWcZAUekaZA1UzUiIsa4rVaK6DqXrgmuyzQiSSsRnoVSOYtJOEeGzB9xwR61pDqjvA2mAl1I2OUZBnKtcna3LZA6himGhZBIEQts3xwV8EptsOfJAZDZD',
+  token: 'EAAOZANotcVcgBAM3PWZCKnDP3VSQ1FEXKO0Wa9iZAybounMWAGx2yynN6Q27MhZCEML54UmyspZB9iuogq5zmN132kMG3Qbk8FzUkRzOZA9i1juYSIYVkffQZCZAVaYAejMKHa2FaHvK8V2ojh2D6DMZACFdGtLAZAjAIjgCXTSu6qlAZDZD',
   verify: 'popetymessenger',
   app_secret: '6fc2a42e53cb0b0dbf27051626effd8b'
 })
