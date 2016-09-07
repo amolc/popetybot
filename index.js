@@ -40,7 +40,7 @@ app.post('/webhook/', function (req, res) {
             continue
         }
         if (text === 'hello' || text === 'Hello') {
-          Greetings(sender, "Lisa:" + text.substring(0, 200))
+        sendTextMessage(sender, "Greet:" + text.substring(0, 200))
             continue
         }
         sendTextMessage(sender, "Popetybot:" + text.substring(0, 200))
