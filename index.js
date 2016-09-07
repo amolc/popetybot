@@ -39,7 +39,7 @@ app.post('/webhook/', function (req, res) {
             propertyDetail(sender)
             continue
         }
-        if (text === 'hello' | text === 'Hello') {
+        if (text === 'hello' || text === 'Hello') {
           Greetings(sender, "Lisa:" + text.substring(0, 200))
             continue
         }
