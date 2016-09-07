@@ -55,8 +55,7 @@ app.post('/webhook/', function (req, res) {
   })
 
 function Greetings(sender, text) {
-      let messageData = { text:text }
-      messageData = "Sorry, I didn’t quite catch that. You can start by typing in a location (city, state or ZIP)" ;
+      let messageData = "Sorry, I didn’t quite catch that. You can start by typing in a location (city, state or ZIP)" ;
       request({
           url: 'https://graph.facebook.com/v2.6/me/messages',
           qs: {access_token:token},
