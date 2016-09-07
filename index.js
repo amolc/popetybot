@@ -43,8 +43,10 @@ app.post('/webhook/', function (req, res) {
           continue
         }else if( text === "Hello" || text === "hello" ){
             sendTextMessage(sender, "Can you tell us if you are looking fors 1. Rent or 2. Sale")
+            continue
         }else{
             sendTextMessage(sender, "Thank you for contacting.Do visit http://www.popety.com")
+            continue
         }
 
       }
