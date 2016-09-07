@@ -40,8 +40,10 @@ app.post('/webhook/', function (req, res) {
         if( n > "-1"){
           propertyDetail(sender)
           continue
+        }else if( text === "Hello" || text === "hello" ){
+            sendTextMessage(sender, "Can you tell us if you are looking for 1. Rent or 2. Sale")
         }else{
-            sendTextMessage(sender, "Popetybot:" + text.substring(0, 200))
+            sendTextMessage(sender, "Thank you:" + text.substring(0, 200))
         }
 
       }
