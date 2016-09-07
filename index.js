@@ -43,7 +43,7 @@ app.post('/webhook/', function (req, res) {
         }else if( text === "Hello" || text === "hello" ){
             sendTextMessage(sender, "Can you tell us if you are looking for 1. Rent or 2. Sale")
         }else{
-            sendTextMessage(sender, "Thank you:" + text.substring(0, 200))
+            sendTextMessage(sender, "Thank you for contacting.Do visit http://www.popety.com")
         }
 
       }
@@ -103,7 +103,7 @@ function propertyDetail(sender) {
                 "template_type": "generic",
                 "elements": [{
                     "title": "City Square 2BHK",
-                    "subtitle": "Rental Property",
+                    "subtitle": "S$3500",
                     "image_url": "https://sg1-cdn.pgimgs.com/listing/19757160/UPHO.75407308.V800/City-Square-Residences-Farrer-Park-Serangoon-Rd-Singapore.jpg",
                     "buttons": [{
                         "type": "web_url",
@@ -116,7 +116,7 @@ function propertyDetail(sender) {
                     }],
                 }, {
                     "title": "City Square 3BHK",
-                    "subtitle": "Element #2 of an hscroll",
+                    "subtitle": "Rental 3BHK 4500",
                     "image_url": "https://sg2-cdn.pgimgs.com/listing/19757160/UPHO.75407323.V800/City-Square-Residences-Farrer-Park-Serangoon-Rd-Singapore.jpg",
                     "buttons": [{
                         "type": "postback",
