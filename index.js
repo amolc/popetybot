@@ -35,8 +35,8 @@ app.post('/webhook/', function (req, res) {
       let sender = event.sender.id
       if (event.message && event.message.text) {
         let text = event.message.text
-        if (text === 'Generic') {
-            sendGenericMessage(sender)
+        if (text === 'Rent In City Square') {
+            propertyDetail(sender)
             continue
         }
         sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
@@ -70,16 +70,16 @@ function sendTextMessage(sender, text) {
     })
 }
 
-function sendGenericMessage(sender) {
+function propertyDetail(sender) {
     let messageData = {
         "attachment": {
             "type": "template",
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "First card",
-                    "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                    "title": "City Square 2BHK",
+                    "subtitle": "Rental Property",
+                    "image_url": "http://www.propertyguru.com.sg/listing/19757160/for-rent-city-square-residences",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.messenger.com",
@@ -92,7 +92,7 @@ function sendGenericMessage(sender) {
                 }, {
                     "title": "Second card",
                     "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+                    "image_url": "http://www.propertyguru.com.sg/listing/20020393/for-rent-city-square-residences",
                     "buttons": [{
                         "type": "postback",
                         "title": "Postback",
