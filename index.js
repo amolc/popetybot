@@ -35,8 +35,12 @@ app.post('/webhook/', function (req, res) {
       let sender = event.sender.id
       if (event.message && event.message.text) {
         let text = event.message.text
-        if (text === 'Rent In City Square') {
+        if (text === 'Rent') {
             propertyDetail(sender)
+            continue
+        }
+        if (text === 'Hello') {
+          Greetings(sender, "Hello Friend:" + text.substring(0, 200))
             continue
         }
         sendTextMessage(sender, "Popetybot:" + text.substring(0, 200))
@@ -50,6 +54,24 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200)
   })
 
+function Greetings(sender, text) {
+      let messageData = { text:text }
+      request({
+          url: 'https://graph.facebook.com/v2.6/me/messages',
+          qs: {access_token:token},
+          method: 'POST',
+          json: {
+              recipient: {id:sender},
+              message: messageData,
+          }
+      }, function(error, response, body) {
+          if (error) {
+              console.log('Error sending messages: ', error)
+          } else if (response.body.error) {
+              console.log('Error: ', response.body.error)
+          }
+      })
+  }
 
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
