@@ -39,8 +39,8 @@ app.post('/webhook/', function (req, res) {
             propertyDetail(sender)
             continue
         }
-        if (text === 'Hello') {
-          Greetings(sender)
+        if (text === 'hello' text === 'Hello') {
+          Greetings(sender, "I know you need something good, let's search")
             continue
         }
         sendTextMessage(sender, "Popetybot:" + text.substring(0, 200))
