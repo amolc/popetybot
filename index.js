@@ -3,7 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
-const token = "EAAEURlUEQKcBAEgcSHhIp2NZCyZB1SCMMv3zuupqhiwZCtp2fU5uw4bDfVTz2ANPr802NZC9JgHvCQrKJVEDHOFcWOpsb0oeIxvZAdGL2n8lo1qGI33HuLc37yupoCZBa3HIvPDduaieIjGUCuLAbRQbvBSoDptc5S0dWzKtxrEAZDZD"
+const token = "EAALxemZAA6IIBAA46GWCWVlQonE3vxthRzwEcRMiTU3vPygbFZCZCxJ6Wa3ABFi8jv4sTZBIkfqYF7BNirFMKHC53U5ZAbZCSC2Jszdep0OQkOom8cZCpTzPrKYpFcfTLnwK6FZAt2sEE9OrA7f69uOsCtZCcZCxZCNxvcgeIgUJopn1QZDZD"
 const app = express()
 
 app.set('port', (process.env.PORT || 5000))
@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === 'my_voice_is_my_password_verify_me') {
+    if (req.query['hub.verify_token'] === 'Newton') {
         res.send(req.query['hub.challenge'])
     }
     res.send('Error, wrong token')
