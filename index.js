@@ -36,12 +36,14 @@ app.post('/webhook/', function (req, res) {
       if (event.message && event.message.text) {
         let text = event.message.text
         let n = text.search(/rent/i);
-        console.log(n);
+        console.log("count"+n);
         if(n > 0){
           propertyDetail(sender)
           continue
+        }else{
+            sendTextMessage(sender, "Popetybot:" + text.substring(0, 200))
         }
-        sendTextMessage(sender, "Popetybot:" + text.substring(0, 200))
+
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
