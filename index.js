@@ -35,9 +35,9 @@ app.post('/webhook/', function (req, res) {
       let sender = event.sender.id
       if (event.message && event.message.text) {
         let text = event.message.text
-        let n = text.search(/rent/i);
+        //let n = text.search(/rent/i);
         console.log(n);
-        if( n > "-1"){
+        if( text === "rent" || text ==="Rent"){
           propertyDetail(sender)
           continue
         }else if( text === "Hello" || text === "hello" ){
