@@ -87,16 +87,16 @@ function propertyDetail(sender) {
                     }, {
                         "type": "postback",
                         "title": "Postback",
-                        "payload": "Payload for first element in a generic bubble",
+                        "payload": "What amenties you require",
                     }],
                 }, {
-                    "title": "Second card",
+                    "title": "City Square 3BHK",
                     "subtitle": "Element #2 of an hscroll",
                     "image_url": "http://www.propertyguru.com.sg/listing/20020393/for-rent-city-square-residences",
                     "buttons": [{
                         "type": "postback",
                         "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
+                        "payload": "What amenties you require",
                     }],
                 }]
             }
