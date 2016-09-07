@@ -39,7 +39,7 @@ app.post('/webhook/', function (req, res) {
             propertyDetail(sender)
             continue
         }
-        sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+        sendTextMessage(sender, "Popetybot:" + text.substring(0, 200))
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
@@ -82,7 +82,7 @@ function propertyDetail(sender) {
                     "image_url": "http://www.propertyguru.com.sg/listing/19757160/for-rent-city-square-residences",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://www.messenger.com",
+                        "url": "https://www.popety.com",
                         "title": "web url"
                     }, {
                         "type": "postback",
