@@ -41,10 +41,6 @@ app.post('/webhook/', function (req, res) {
           propertyDetail(sender)
           continue
         }
-        else if (text === 'hello' || text === 'Hello') {
-        sendTextMessage(sender, "Greet:" + text.substring(0, 200))
-            continue
-        }
         sendTextMessage(sender, "Popetybot:" + text.substring(0, 200))
       }
       if (event.postback) {
