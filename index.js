@@ -102,7 +102,7 @@ function propertyDetail(sender) {
                 "elements": [{
                     "title": "City Square 2BHK",
                     "subtitle": "Rental Property",
-                    "image_url": "http://www.propertyguru.com.sg/listing/19757160/for-rent-city-square-residences",
+                    "image_url": "https://sg1-cdn.pgimgs.com/listing/19757160/UPHO.75407308.V800/City-Square-Residences-Farrer-Park-Serangoon-Rd-Singapore.jpg",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.popety.com",
@@ -115,7 +115,7 @@ function propertyDetail(sender) {
                 }, {
                     "title": "City Square 3BHK",
                     "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://www.propertyguru.com.sg/listing/20020393/for-rent-city-square-residences",
+                    "image_url": "https://sg2-cdn.pgimgs.com/listing/19757160/UPHO.75407323.V800/City-Square-Residences-Farrer-Park-Serangoon-Rd-Singapore.jpg",
                     "buttons": [{
                         "type": "postback",
                         "title": "Postback",
