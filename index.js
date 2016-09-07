@@ -36,7 +36,8 @@ app.post('/webhook/', function (req, res) {
       if (event.message && event.message.text) {
         let text = event.message.text
         //let n = text.search(/rent/i);
-        // console.log(n);
+
+
         if( text === "rent" || text ==="Rent"){
           propertyDetail(sender)
           continue
@@ -77,7 +78,6 @@ function Greetings(sender, text) {
 
 function sendTextMessage(sender, text) {
     let messageData = { text:text }
-
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token:token},
