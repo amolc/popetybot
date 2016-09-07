@@ -35,7 +35,8 @@ app.post('/webhook/', function (req, res) {
       let sender = event.sender.id
       if (event.message && event.message.text) {
         let text = event.message.text
-        var n = text.search(/rent/i);
+        let n = text.search(/rent/i);
+        console.log(n);
         if(n > 0){
           propertyDetail(sender)
           continue
