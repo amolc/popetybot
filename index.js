@@ -36,8 +36,8 @@ app.post('/webhook/', function (req, res) {
       if (event.message && event.message.text) {
         let text = event.message.text
         let n = text.search(/rent/i);
-        console.log("count"+n);
-        if(n > 0){
+        console.log(n);
+        if( n > "-1"){
           propertyDetail(sender)
           continue
         }else{
