@@ -41,10 +41,7 @@ app.post('/webhook/', function (req, res) {
           propertyDetail(sender)
           continue
         }
-        // if (text === 'Rent' || text === 'rent') {
-        //
-        // }
-        if (text === 'hello' || text === 'Hello') {
+        else if (text === 'hello' || text === 'Hello') {
         sendTextMessage(sender, "Greet:" + text.substring(0, 200))
             continue
         }
