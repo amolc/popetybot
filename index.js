@@ -35,10 +35,14 @@ app.post('/webhook/', function (req, res) {
       let sender = event.sender.id
       if (event.message && event.message.text) {
         let text = event.message.text
-        if (text === 'Rent' || text === 'rent') {
-            propertyDetail(sender)
-            continue
+        var n = text.search(/rent/i);
+        if(n > 0){
+          propertyDetail(sender)
+          continue
         }
+        // if (text === 'Rent' || text === 'rent') {
+        //
+        // }
         if (text === 'hello' || text === 'Hello') {
         sendTextMessage(sender, "Greet:" + text.substring(0, 200))
             continue
