@@ -1,15 +1,23 @@
 {
-  "name": "popetybot",
+  "name": "chatbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chatbot helps us to communicate with facebook",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm test"
   },
-  "author": "",
+  "keywords": [
+    "chatbot",
+    "for",
+    "facebook",
+    "property",
+    "chatbot"
+  ],
+  "author": "Amol Ch",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "httpd": "0.0.2"
+    "request": "^2.74.0"
   }
 }
