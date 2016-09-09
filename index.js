@@ -3,7 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
-const bot = require('bot')
+const bot = require('./bot')
 const token = "EAALxemZAA6IIBAA46GWCWVlQonE3vxthRzwEcRMiTU3vPygbFZCZCxJ6Wa3ABFi8jv4sTZBIkfqYF7BNirFMKHC53U5ZAbZCSC2Jszdep0OQkOom8cZCpTzPrKYpFcfTLnwK6FZAt2sEE9OrA7f69uOsCtZCcZCxZCNxvcgeIgUJopn1QZDZD"
 const app = express()
 
