@@ -3,6 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
+const bot = require('bot')
 const token = "EAALxemZAA6IIBAA46GWCWVlQonE3vxthRzwEcRMiTU3vPygbFZCZCxJ6Wa3ABFi8jv4sTZBIkfqYF7BNirFMKHC53U5ZAbZCSC2Jszdep0OQkOom8cZCpTzPrKYpFcfTLnwK6FZAt2sEE9OrA7f69uOsCtZCcZCxZCNxvcgeIgUJopn1QZDZD"
 const app = express()
 
@@ -36,19 +37,16 @@ app.post('/webhook/', function (req, res) {
       if (event.message && event.message.text) {
         let text = event.message.text
         //let n = text.search(/rent/i);
-
-
         if( text === "rent" || text ==="Rent"){
-          propertyDetail(sender)
+          bot.propertyDetail(sender)
           continue
         }else if( text === "Hello" || text === "hello" ){
-            sendTextMessage(sender, "Can you tell us if you are looking fors 1. Rent or 2. Sale")
+            bot.sendTextMessage(sender, "Can you tell us if you are looking fors 1. Rent or 2. Sale")
             continue
         }else{
-            sendTextMessage(sender, "Thank you for contacting.Do visit http://www.popety.com")
+            bot.sendTextMessage(sender, "Thank you for contacting.Do visit http://www.popety.com")
             continue
         }
-
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
@@ -58,93 +56,6 @@ app.post('/webhook/', function (req, res) {
     }
     res.sendStatus(200)
   })
-
-function Greetings(sender, text) {
-      let messageData = "Sorry, I didn’t quite catch that. You can start by typing in a location (city, state or ZIP)" ;
-      request({
-          url: 'https://graph.facebook.com/v2.6/me/messages',
-          qs: {access_token:token},
-          method: 'POST',
-          json: {
-              recipient: {id:sender},
-              message: messageData,
-          }
-      }, function(error, response, body) {
-          if (error) {
-              console.log('Error sending messages: ', error)
-          } else if (response.body.error) {
-              console.log('Error: ', response.body.error)
-          }
-      })
-  }
-
-function sendTextMessage(sender, text) {
-    let messageData = { text:text }
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:token},
-        method: 'POST',
-        json: {
-            recipient: {id:sender},
-            message: messageData,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    })
-}
-
-function propertyDetail(sender) {
-    let messageData = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
-                    "title": "City Square 2BHK",
-                    "subtitle": "S$3500",
-                    "image_url": "https://sg1-cdn.pgimgs.com/listing/19757160/UPHO.75407308.V800/City-Square-Residences-Farrer-Park-Serangoon-Rd-Singapore.jpg",
-                    "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.popety.com",
-                        "title": "web url"
-                    }, {
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "What amenties you require",
-                    }],
-                }, {
-                    "title": "City Square 3BHK",
-                    "subtitle": "Rental 3BHK 4500",
-                    "image_url": "https://sg2-cdn.pgimgs.com/listing/19757160/UPHO.75407323.V800/City-Square-Residences-Farrer-Park-Serangoon-Rd-Singapore.jpg",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "What amenties you require",
-                    }],
-                }]
-            }
-        }
-    }
-    request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:token},
-        method: 'POST',
-        json: {
-            recipient: {id:sender},
-            message: messageData,
-        }
-    }, function(error, response, body) {
-        if (error) {
-            console.log('Error sending messages: ', error)
-        } else if (response.body.error) {
-            console.log('Error: ', response.body.error)
-        }
-    })
-}
 
 // Spin up the server
 app.listen(app.get('port'), function() {
