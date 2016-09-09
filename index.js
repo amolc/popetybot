@@ -3,7 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
-const bot = require('./bot')
+const aibot = require('./bot')
 const token = "EAALxemZAA6IIBAA46GWCWVlQonE3vxthRzwEcRMiTU3vPygbFZCZCxJ6Wa3ABFi8jv4sTZBIkfqYF7BNirFMKHC53U5ZAbZCSC2Jszdep0OQkOom8cZCpTzPrKYpFcfTLnwK6FZAt2sEE9OrA7f69uOsCtZCcZCxZCNxvcgeIgUJopn1QZDZD"
 const app = express()
 
@@ -38,13 +38,13 @@ app.post('/webhook/', function (req, res) {
         let text = event.message.text
         //let n = text.search(/rent/i);
         if( text === "rent" || text ==="Rent"){
-          bot.propertyDetail(sender)
+          aibot.propertyDetail(sender)
           continue
         }else if( text === "Hello" || text === "hello" ){
-            bot.sendTextMessage(sender, "Can you tell us if you are looking fors 1. Rent or 2. Sale")
+          aibot.sendTextMessage(sender, "Can you tell us if you are looking fors 1. Rent or 2. Sale")
             continue
         }else{
-            bot.sendTextMessage(sender, "Thank you for contacting.Do visit http://www.popety.com")
+          aibot.sendTextMessage(sender, "Thank you for contacting.Do visit http://www.popety.com")
             continue
         }
       }
